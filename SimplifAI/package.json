@@ -1,0 +1,17 @@
+{
+  "name": "simplifai",
+  "version": "1.0.0",
+  "description": "Microsoft Edge extension for text simplification and translation using local LLM or external APIs.",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild background.js --bundle --outfile=dist/service_worker_bundle.js --format=esm --platform=browser"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@huggingface/transformers": "^3.7.2",
+    "esbuild": "^0.25.9"
+  }
+}
