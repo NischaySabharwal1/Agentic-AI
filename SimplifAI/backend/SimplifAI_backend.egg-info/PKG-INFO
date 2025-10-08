@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: SimplifAI-backend
+Version: 0.1.0
+Summary: FastAPI backend for SimplifAI extension, handling Gemini API interactions.
+Requires-Python: >=3.10
+Requires-Dist: google-generativeai
+Requires-Dist: fastapi
+Requires-Dist: uvicorn[standard]
+Requires-Dist: python-dotenv

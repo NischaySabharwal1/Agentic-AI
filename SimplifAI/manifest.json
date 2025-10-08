@@ -12,7 +12,12 @@
     "activeTab",
     "contextMenus",
     "scripting",
-    "storage"
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://localhost:8000/*"
   ],
   "content_security_policy": {
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"

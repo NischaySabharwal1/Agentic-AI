@@ -3,28 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const defaultLanguageSelect = document.getElementById('defaultLanguage');
   const saveButton = document.getElementById('saveButton');
   const statusDiv = document.getElementById('status');
-  const ollamaApiEndpointInput = document.getElementById('ollamaApiEndpoint');
-  const ollamaModelInput = document.getElementById('ollamaModel');
+  const geminiApiKeyInput = document.getElementById('geminiApiKey'); // New: Gemini API Key input
 
   // Load saved options
-  chrome.storage.sync.get(['defaultLanguage', 'ollamaApiEndpoint', 'ollamaModel'], (data) => {
+  chrome.storage.sync.get(['defaultLanguage', 'geminiApiKey'], (data) => {
     if (data.defaultLanguage) {
       defaultLanguageSelect.value = data.defaultLanguage;
     }
-    if (data.ollamaApiEndpoint) {
-      ollamaApiEndpointInput.value = data.ollamaApiEndpoint;
-    }
-    if (data.ollamaModel) {
-      ollamaModelInput.value = data.ollamaModel;
+    if (data.geminiApiKey) {
+      geminiApiKeyInput.value = data.geminiApiKey; // Load Gemini API Key
     }
   });
 
   // Save options
   saveButton.addEventListener('click', () => {
     const defaultLanguage = defaultLanguageSelect.value;
-    const ollamaApiEndpoint = ollamaApiEndpointInput.value;
-    const ollamaModel = ollamaModelInput.value;
-    chrome.storage.sync.set({ defaultLanguage: defaultLanguage, ollamaApiEndpoint: ollamaApiEndpoint, ollamaModel: ollamaModel }, () => {
+    const geminiApiKey = geminiApiKeyInput.value; // Get Gemini API Key
+
+    chrome.storage.sync.set({ defaultLanguage: defaultLanguage, geminiApiKey: geminiApiKey }, () => {
       statusDiv.textContent = 'Options saved!';
       setTimeout(() => {
         statusDiv.textContent = '';

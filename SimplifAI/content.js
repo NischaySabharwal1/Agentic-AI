@@ -18,7 +18,7 @@ function resetChatbotTimer() {
 }
 
 // Function to handle sending chat input
-function sendChatMessage(chatInput, chatMessages, originalSelectedText) {
+async function sendChatMessage(chatInput, chatMessages, originalSelectedText) {
   console.log("[SimplifAI Chatbot] sendChatMessage called.");
   const userMessage = chatInput.value.trim();
   if (userMessage) {
@@ -35,7 +35,7 @@ function sendChatMessage(chatInput, chatMessages, originalSelectedText) {
     // Send message to background.js for LLM processing
     try {
       console.log("[SimplifAI Chatbot] Attempting to send message via chrome.runtime.sendMessage.");
-      chrome.runtime.sendMessage({
+      await chrome.runtime.sendMessage({
         action: "chatbot_query",
         question: userMessage,
         context: originalSelectedText,

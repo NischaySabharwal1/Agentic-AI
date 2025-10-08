@@ -1,0 +1,15 @@
+[project]
+name = "SimplifAI-backend"
+version = "0.1.0"
+description = "FastAPI backend for SimplifAI extension, handling Gemini API interactions."
+requires-python = ">=3.10"
+dependencies = [
+    "google-generativeai", # Using the official package name for Gemini
+    "fastapi",
+    "uvicorn[standard]",
+    "python-dotenv",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
